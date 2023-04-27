@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "302482749205",
+    "project_id": "ecocleaner-40afc",
+    "storage_bucket": "ecocleaner-40afc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302482749205:android:da0e209bb8b1ecc20a9b1c",
+        "android_client_info": {
+          "package_name": "com.example.ecocleaner_v2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "302482749205-b8tmm61h8pcmb002m42jholvglctbv7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtAbZuzNlqlnTI3BBR1tQ4O242-Hzlnh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "302482749205-b8tmm61h8pcmb002m42jholvglctbv7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
