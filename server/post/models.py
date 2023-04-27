@@ -9,7 +9,6 @@ class Post(models.Model):
         IN_PROGRESS = 'IN_PROGRESS', 'In Progress'
         DONE = 'DONE', 'Done'
 
-    
     description = models.TextField()
     location = models.CharField(max_length=255)
     status = models.CharField(
@@ -17,12 +16,10 @@ class Post(models.Model):
     user = models.ForeignKey(
         'user.User', on_delete=models.CASCADE, related_name='posts')
     community = models.ForeignKey(
-        'community.Community', on_delete=models.CASCADE, related_name='posts', default=None)
-    created_at = models.DateTimeField(default=now)
-    updated_at = models.DateTimeField(default=now)
-    
-    
-    
+        'community.Community', on_delete=models.CASCADE, related_name='posts', null=True, blank=True)
+    created_at = models.DateTimeField(default=now, null=True, blank=True)
+    updated_at = models.DateTimeField(default=now, null=True, blank=True)
+
 
 class Image(models.Model):
     post = models.ForeignKey(

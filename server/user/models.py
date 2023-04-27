@@ -9,14 +9,15 @@ from community.models import CommunityUser
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True, max_length=255)
+    username = models.CharField(max_length=30, unique=True)
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
+    image = models.ImageField(upload_to='users/', blank=True, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     communities = models.ManyToManyField(
         'community.Community', related_name='users', through=CommunityUser)
-    username = models.CharField(max_length=30, unique=True)
 
     USERNAME_FIELD = 'email'
 
