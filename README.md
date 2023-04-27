@@ -1,16 +1,42 @@
-# ecocleaner_v2
 
-A new Flutter project.
+## Installation
 
-## Getting Started
+To install and run this project locally, follow these steps:
 
-This project is a starting point for a Flutter application.
+1. Clone the repository:
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+$ git clone https://github.com/Etharshehab/EcoCleaner.git
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2. Change into the project directory:
+```bash
+$ cd EcoCleaner/server
+```
+
+
+3. Install the required dependencies:
+```bash
+py -m venv env
+$ pip install -r requirements.txt
+```
+
+
+4. Create the database tables:
+```bash
+$ python manage.py migrate
+```
+
+
+
+5. Start the development server:
+```bash
+$ python manage.py runserver
+```
+
+6. Open a web browser and navigate to `http://localhost:8000/docs/` to access the documentation.
+
+
+
+
