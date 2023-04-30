@@ -1,10 +1,13 @@
 import 'package:ecocleaner_v2/widget/bottomnavbar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import "package:ecocleaner_v2/view/screen/home.dart";
 import 'package:ecocleaner_v2/view/screen/login.dart';
 
 class SignUp extends StatelessWidget {
-  const SignUp({Key? key}) : super(key: key);
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  SignUp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -129,10 +132,17 @@ class SignUp extends StatelessWidget {
                         backgroundColor: const Color.fromRGBO(49, 204, 149, 1),
                       ),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const LayoutScreen()));
+                        FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                                email: emailController.text,
+                                password: passwordController.text)
+                            .then((value) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const LayoutScreen(),
+                              ));
+                        });
                       },
                       child: const Text(
                         "Sign up",

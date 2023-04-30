@@ -1,7 +1,9 @@
 import 'package:ecocleaner_v2/view/screen/signup.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ecocleaner_v2/widget/custom_email.dart';
 
+import '../../widget/bottomnavbar.dart';
 import '../../widget/custom_password.dart';
 import '../../widget/custom_username.dart';
 import '../../widget/loginbutton.dart';
@@ -54,7 +56,46 @@ class LoginState extends State<Login> {
               const SizedBox(height: 20.0),
               const CustomPassword(),
               const SizedBox(height: 24.0),
-              const CustomLoginButton(),
+              SizedBox(
+                width: 100,
+                child: GestureDetector(
+                  onTap: () {
+                    FirebaseAuth.instance
+                        .signInWithEmailAndPassword(
+                      email: emailController.text,
+                      password: passwordController.text,
+                    )
+                        .then((value) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LayoutScreen(),
+                          ));
+                    });
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 100,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12,
+                      horizontal: 24,
+                    ),
+                    decoration: BoxDecoration(
+                      color: const Color.fromRGBO(49, 204, 149, 1),
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: const Text(
+                      textAlign: TextAlign.center,
+                      'LOGIN',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               const SizedBox(height: 50.0),
               TextButton(
                 onPressed: () {},
@@ -102,7 +143,7 @@ class LoginState extends State<Login> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SignUp(),
+                      builder: (context) => SignUp(),
                     ),
                   );
                 },
